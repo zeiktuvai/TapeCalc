@@ -1,0 +1,60 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:TapeCalc.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:uc="clr-namespace:TapeCalc.Views;assembly=TapeCalc"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+		Width="800" Height="450"
+        x:Class="TapeCalc.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="TapeCalc"
+		>
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+	<Grid Background="AliceBlue">
+		<Grid.RowDefinitions>
+			<!--<RowDefinition Height="60" />-->
+			<RowDefinition Height="*" />
+			<!--<RowDefinition Height="40" />-->
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="100" />
+			<ColumnDefinition Width="*" />			
+		</Grid.ColumnDefinitions>
+
+		<Label Name="lblVer" Foreground="Black" />
+
+		<Grid Grid.Column="1">
+			<uc:CalculatorView/>			
+		</Grid>
+		
+		<!--<ItemsControl Name="lbxCalcView" Items="{Binding LineItems}" Grid.Column="1" Grid.Row="1" Background="AliceBlue">
+			--><!--<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="+" Padding="10,1,10,0" FontSize="16"/>
+						<TextBlock Text="145" Padding="0,1,5,0" FontSize="16"/>
+						<TextBlock Text="New payment" Padding="5,1,0,0" FontSize="16" Foreground="Green" />
+					</StackPanel>
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>--><!--
+			<ItemsControl.ItemTemplate>
+				<DataTemplate>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="{Binding Operation}"  Padding="10,1,10,0" FontSize="16"/>
+						<TextBlock Text="{Binding Operand}" Padding="0,1,5,0" FontSize="16"/>	
+						<TextBlock Text="{Binding Comment}" Padding="5,1,0,0" FontSize="16" Foreground="Green"/>
+					</StackPanel>
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
+		</ItemsControl>
+		<TextBox Name="tbxCalcEntry" KeyUp="KeyPress" Grid.Column="1" Grid.Row="2"></TextBox>-->
+    
+		
+	</Grid>
+
+</Window>

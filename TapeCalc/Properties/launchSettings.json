@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TapeCalc": {
+      "commandName": "Project",
+      "remoteDebugEnabled": true
+    }
+  }
+}

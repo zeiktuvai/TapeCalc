@@ -1,0 +1,36 @@
+{
+  "app-id": "org.icomnetworks.TapeCalc",
+  "runtime": "org.freedesktop.Platform",
+  "runtime-version": "21.08",
+  "sdk": "org.freedesktop.Sdk",
+  "command": "TapeCalc",
+  "finish-args": [
+    "--share=ipc",
+    "--socket=x11",
+    "--socket=wayland",
+    "--socket=pulseaudio",
+    "--device=dri",
+    "--filesystem=xdg-config/kdeglobals:ro",
+    "--filesystem=home"
+  ],
+  "modules": [
+    {
+      "name": "TapeCalc",
+      "buildsystem": "simple",
+      "build-commands": [
+        "install -D TapeCalc /app/bin/TapeCalc",
+        "install -Dm644 org.icomnetworks.TapeCalc.desktop /app/share/applications/org.icomnetworks.TapeCalc.desktop"
+      ],
+      "sources": [
+        {
+          "type": "file",
+          "path": "TapeCalc"
+        },
+        {
+          "type": "file",
+          "path": "org.icomnetworks.TapeCalc.desktop"
+        }
+      ]
+    }
+  ]
+}
