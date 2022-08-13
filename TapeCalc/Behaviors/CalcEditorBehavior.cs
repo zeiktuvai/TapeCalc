@@ -33,6 +33,7 @@ namespace TapeCalc.Behaviors
                 _textEditor = textEditor;
                 _textEditor.TextArea.TextEntering += TextEntering;
                 _textEditor.KeyUp += KeyPress;
+                _textEditor.TextArea.PointerReleased += PointerPressed;
                 _textEditor.InstallTextMate(new RegistryOptions(ThemeName.Dark));
                 //_textEditor.TextArea.TextView.LineTransformers.OfType<TextMateColoringTransformer>().FirstOrDefault();
 
@@ -67,16 +68,19 @@ namespace TapeCalc.Behaviors
                 {
                     case "\n":
                         doc.Caret.Column = doc.Document.GetLineByNumber(doc.Caret.Line).Length + 1;
-                        
 
-                        //var newDoc = new TextDocument(TextProcessor.ConvertTextEditorText(
-                        //   Calculations.CalculateValues(TextProcessor.ConvertTextEditorText(Text))));
-                        var newDoc = new TextDocument(TextProcessor.ConvertTextEditorText(Calculations.CalculateValues(TextProcessor.ConvertTextEditorText(_textEditor.Document))));
-                        _textEditor.Document = newDoc;
 
-                        //doc.Document.Insert(_textEditor.CaretOffset, "\r\n");
-                        doc.Caret.Line = doc.Document.Lines.Count;
+                        var curentLineText = _textEditor.Document.GetText(_textEditor.Document.GetLineByNumber(doc.Caret.Line));
+                        if (curentLineText == "")
+                        {
+                            doc.Document.Insert(_textEditor.CaretOffset, "\r\n");
+                        } else
+                        {
+                            TextDocument newDoc = new TextDocument(TextProcessor.ConvertTextEditorText(Calculations.CalculateValues(TextProcessor.ConvertTextEditorText(_textEditor.Document))));
+                            _textEditor.Document = newDoc;
 
+                            doc.Caret.Line = doc.Document.Lines.Count;
+                        }
 
 
                         eventArgs.Handled = true;
@@ -145,6 +149,15 @@ namespace TapeCalc.Behaviors
             //            break;
             //    }
             //}
+        }
+
+        private void PointerPressed(object sender, EventArgs e)
+        {
+            var text = _textEditor.Document.GetText(_textEditor.Document.GetLineByNumber(1));
+            if (text.Contains("Welcome to TapeCalc!"))
+            {
+                _textEditor.Document = new TextDocument();
+            }
         }
     }
 }

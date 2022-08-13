@@ -98,9 +98,8 @@ namespace TapeCalc.Views
                     items = JsonConvert.DeserializeObject<List<CalculatorLineItemModel>>(read_json);
                 }
             
-                this.FindControl<TextEditor>("editor").Text = Helpers.TextProcessor.ConvertTextEditorText(items);
+                this.FindControl<TextEditor>("editor").Document = Helpers.TextProcessor.ConvertTextEditorText(items);
             }
-
         }
     }
 }

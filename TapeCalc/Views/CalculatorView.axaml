@@ -5,7 +5,7 @@
 			 xmlns:ae="clr-namespace:AvaloniaEdit;assembly=AvaloniaEdit"
 			 xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
 			 xmlns:behaviors="clr-namespace:TapeCalc.Behaviors;assembly=TapeCalc"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"			 
              x:Class="TapeCalc.Views.CalculatorView">
 	
 	<Grid Background="White">
@@ -22,9 +22,9 @@
 				<MenuItem Header="SaveAs" Click="SaveAsTextEditor" Padding="5" />
 			</Menu>
 		</DockPanel>
-		
+
 		<ae:TextEditor
-			x:Name="editor"			
+			x:Name="editor"
 			Margin="0"
 			Background="White"
 			Grid.Row="1"
@@ -34,10 +34,10 @@
 			WordWrap="False"
 			SyntaxHighlighting="XML"
 			ShowLineNumbers="True">
-			<i:Interaction.Behaviors>				
+			<i:Interaction.Behaviors>
 				<behaviors:CalcEditorBehavior Text="{Binding code, Mode=TwoWay}"/>
 			</i:Interaction.Behaviors>
-			
+
 		</ae:TextEditor>
 	</Grid>
 	

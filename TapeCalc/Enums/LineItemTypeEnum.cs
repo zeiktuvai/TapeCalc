@@ -13,6 +13,7 @@ namespace TapeCalc.Enums
         Separator = 2,
         BlankLine = 3,
         EndOfLine = 4,
-        TextLine = 5
+        TextLine = 5,
+        EndOfBlock = 6
     }
 }

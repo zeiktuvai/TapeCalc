@@ -42,6 +42,15 @@ namespace TapeCalc.Helpers
                             count++;
                             break;
 
+                        case LineItemTypeEnum.EndOfBlock:
+                            processedList.Add(new CalculatorLineItemModel { LineItemType = LineItemTypeEnum.Separator });
+                            newLine.Operation = "=";
+                            newLine.Operand = calculation;
+                            newLine.Comment = "";
+                            newLine.LineItemType = LineItemTypeEnum.TotalLine;
+                            calculation = 0;
+                            break;
+
                         case LineItemTypeEnum.EndOfLine:
                             if (calcList[calcList.FindIndex(li => li.LineItemType == LineItemTypeEnum.EndOfLine) - 1]
                                .LineItemType != LineItemTypeEnum.BlankLine && count > 1)
@@ -79,7 +88,7 @@ namespace TapeCalc.Helpers
                         case LineItemTypeEnum.TextLine:
                             newLine.LineItemType = LineItemTypeEnum.TextLine;
                             newLine.Comment = item.Comment;
-                            break;
+                            break;                        
                     }
 
                     processedList.Add(newLine);        

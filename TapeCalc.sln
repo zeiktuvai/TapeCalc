@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TapeCalc", "TapeCalc\TapeCalc.csproj", "{984FAFC2-0D2F-4B77-BA26-8E35BBE9420F}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TapeCalc.Setup.Windows", "TapeCalc.Setup.Windows\TapeCalc.Setup.Windows.vdproj", "{A1CD2BFF-1720-40C7-977E-7E2549F5F7A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{984FAFC2-0D2F-4B77-BA26-8E35BBE9420F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{984FAFC2-0D2F-4B77-BA26-8E35BBE9420F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{984FAFC2-0D2F-4B77-BA26-8E35BBE9420F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1CD2BFF-1720-40C7-977E-7E2549F5F7A5}.Debug|Any CPU.ActiveCfg = Debug
+		{A1CD2BFF-1720-40C7-977E-7E2549F5F7A5}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
